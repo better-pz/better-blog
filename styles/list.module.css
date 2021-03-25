@@ -1,0 +1,14 @@
+.list_title {
+    font-size:1.3rem;
+    color: #1e90ff;
+    padding: 0 0.5rem;
+
+}
+.list_content {
+    color: #777;
+    padding:.5rem;
+}
+.list_icon {
+    padding:.5rem;
+    color:#AAA;
+}
