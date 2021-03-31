@@ -1,0 +1,21 @@
+.author_div {
+    text-align: center;
+}
+.author-div div {
+    margin-bottom: 1rem;
+}
+
+
+.author_description {
+    color: #999;
+}
+.author_name{
+    color: chocolate;
+    font-size: 1rem;
+   
+}
+.account{
+    background-color: #999;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
