@@ -2,9 +2,11 @@
 
 .comm_left{
   background-color: #FFF;
-  padding:.3rem;
+  padding: .3rem;
   border-radius: .3rem;
-  border-bottom:1px solid #eee;
+  border: 1px solid #eee;
+
+
 }
 .comm_right{
   background-color: #FFF;

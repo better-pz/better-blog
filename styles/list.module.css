@@ -1,8 +1,8 @@
 .list_title {
-    font-size:1.3rem;
+    font-size: 1.4rem;
     color: #1e90ff;
     padding: 0 0.5rem;
-
+    margin-top: 1.3rem;
 }
 .list_content {
     color: #777;
@@ -11,4 +11,12 @@
 .list_icon {
     padding:.5rem;
     color:#AAA;
+}
+.list_go{
+    text-align: right;
+    margin-right: 20px;
+    color: #bbb;
+}
+.list_go  a {
+    color: #1890ff;
 }
