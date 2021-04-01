@@ -9,8 +9,8 @@ export default function Classify() {
         <div className={'comm-box'}>
             <div className={styles.ls_title}>文章分类</div>
             
-           { classifyList.map(item=> {
-               return  <a className={'classifyList'}><FolderAddOutlined />{item}<RightOutlined/></a> 
+           { classifyList.map((item,index)=> {
+               return  <a className={'classifyList'} key={index}><FolderAddOutlined />{item}<RightOutlined/></a> 
              
            })}
             

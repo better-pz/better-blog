@@ -1,9 +1,11 @@
 import styles from "../styles/Header.module.css";
+import Link from 'next/link'
+
 import { Row, Col, Menu } from "antd";
 import {
   FileSearchOutlined,
   SmileOutlined,
-  VideoCameraOutlined,
+  BookOutlined
 } from "@ant-design/icons";
 function Header(props) {
   return (
@@ -12,7 +14,8 @@ function Header(props) {
       <div className={styles.header_center}>
         <Row type="flex" justify="center">
           <Col xs={24} sm={24} md={13}>
-            <span className={styles.header_logo}>柏特</span>
+            <Link href="/"><a className={styles.header_logo}>柏特</a></Link>
+            
             <span className={styles.header_txt}>
               永远在路上,不一定逆风翻盘，但一定要向阳而生
             </span>
@@ -25,8 +28,8 @@ function Header(props) {
                 文章
               </Menu.Item>
               <Menu.Item key="video">
-                <VideoCameraOutlined />
-                视频
+              <BookOutlined />
+                作品集
               </Menu.Item>
               <Menu.Item key="life">
                 <SmileOutlined />

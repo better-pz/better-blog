@@ -6,9 +6,10 @@ const Advert = () => {
 
   return (
     <>
-      {advertList.map((item) => {
-        return <div className={styles.advert}>{item}</div>;
+      {advertList.map((item,index) => {
+        return <div className={styles.advert} key={index}>{item}</div>;
       })}
+      <div className={styles.pay}>赏</div>
     </>
   );
 };
