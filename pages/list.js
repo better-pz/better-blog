@@ -4,7 +4,9 @@ import list from "../styles/list.module.css";
 import { useState } from "react";
 import { Row, Col, List } from "antd";
 import { CarryOutOutlined } from "@ant-design/icons";
-import Header from "../components/Header";
+import Author from "../components/Author";
+import Classify from "../components/Classify";
+import Advert from "../components/Advert";
 
 export default function Home() {
   const [mylist, setMylist] = useState([
@@ -53,7 +55,11 @@ export default function Home() {
               </List.Item>
             )}
           />
-       
+         <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
+          <Author />
+          <Classify />
+          <Advert/>
+        </Col>
     </div>
   );
 }
