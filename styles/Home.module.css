@@ -5,16 +5,17 @@
   padding: .3rem;
   border-radius: .3rem;
   border: 1px solid #eee;
-
+  opacity:0.8;
 
 }
 .comm_right{
-  background-color: #FFF;
+  /* background-color: #FFF; */
   margin-left: .5rem;
-  padding:.3rem;
+  /* padding:.3rem; */
   border-radius: .3rem;
   border-bottom:1px solid #eee;
-
+  opacity:0.8;
+  
 }
 .comm_main{
   margin-top: .5rem;

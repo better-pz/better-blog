@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import list from "../styles/list.module.css";
 import { useState } from "react";
-import { Row, Col, List } from "antd";
+import { Row, Col, List,Affix } from "antd";
 import { CarryOutOutlined } from "@ant-design/icons";
 import Author from "../components/Author";
 import Classify from "../components/Classify";
@@ -56,9 +56,11 @@ export default function Home() {
             )}
           />
          <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
+         <Affix offsetTop={0}>
           <Author />
           <Classify />
           <Advert/>
+          </Affix>
         </Col>
     </div>
   );

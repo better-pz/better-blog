@@ -1,13 +1,16 @@
 import Header from "./Header";
 import Footer from "./Footer"
-import styles from "../styles/Home.module.css";
+
+import { Affix} from "antd";
 
 function Layout(params) {
     return(
         <>
+        <Affix >
         <Header />
+        </Affix>
        
-        <div >{params.children}</div>
+        <div>{params.children}</div>
         
         <Footer/>
         </>

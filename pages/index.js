@@ -10,7 +10,7 @@ import {
   RiseOutlined,
 } from "@ant-design/icons";
 
-import { Row, Col, List } from "antd";
+import { Row, Col, List,Affix} from "antd";
 import Header from "../components/Header";
 import Author from "../components/Author";
 import Advert from "../components/Advert";
@@ -84,10 +84,13 @@ export default function Home() {
         </Col>
 
         <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Affix offsetTop={60}>
           <Author />
           <Classify />
           <Advert />
+          </Affix>
         </Col>
+        
       </Row>
     </div>
   );

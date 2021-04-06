@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css";
 import Link from 'next/link'
 
-import { Row, Col, Menu } from "antd";
+import { Row, Col, Menu,Input } from "antd";
 import {
   FileSearchOutlined,
   SmileOutlined,
@@ -36,6 +36,7 @@ function Header(props) {
                 生活
               </Menu.Item>
             </Menu>
+            {/* <Search/> */}
           </Col>
         </Row>
       </div>

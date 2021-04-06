@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 body{
-  background-color: #f6f6f6;  
+  background:url('../public/images/bg2.png') repeat;  
 }
 
 .comm-left{
@@ -89,4 +89,31 @@ code {
   color: #888;
   border-bottom: 1px solid rgb(30, 144, 255);
 
+}
+.aside {
+  position: fixed;
+  z-index: 98;
+  top: 216px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  left: calc((100vw - 1000px)/2 - 78px);
+}
+.aside_list {
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 16px;
+  cursor: pointer;
+  color: #969696;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  background-color: #fff;
 }
