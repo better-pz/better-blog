@@ -121,3 +121,12 @@ code {
   background-color: #f5d266;
   color: #FFF;
 }
+.comment-action {
+  padding-left: 8px;
+  cursor: 'auto';
+}
+
+[class*='-col-rtl'] .comment-action {
+  padding-right: 8px;
+  padding-left: 0;
+}
