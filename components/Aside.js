@@ -3,12 +3,13 @@ import {LikeOutlined}  from "@ant-design/icons";
 export default function Aside() {
     return (
         <div className='aside'>
-            <div className='aside_list'>
+            <div className={`aside_list aside_click`}>
             <LikeOutlined />
             </div>
             <div className='aside_list'>
-            <LikeOutlined />
+                赏
             </div>
         </div>
     )
 }
+ 

@@ -7,6 +7,7 @@ export default function Author() {
   useEffect(() => {
     myFuction();
   }, []);
+  //文字逐个显示
   const myFuction = () => {
     // setInterval(function() {
       const str = "永远的不停留,永远的生生不息".split("");

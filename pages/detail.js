@@ -5,6 +5,7 @@ import MarkNav from "markdown-navbar";
 import "markdown-navbar/dist/navbar.css";
 import { Row, Col, Breadcrumb, Affix } from "antd";
 import Aside from "../components/Aside";
+import ShowComment from "../components/ShowComment";
 
 export default function Home() {
   let markdown =
@@ -51,7 +52,8 @@ export default function Home() {
       <Aside />
       <Row className={styles.comm_main} type="flex" justify="center">
         
-        <Col xs={24} sm={24} md={16} lg={18} xl={10} className={styles.comm_left}>
+        <Col xs={24} sm={24} md={16} lg={18} xl={10}>
+          <div  className={styles.comm_left}>
           <div className={styles.comm_crumb}>
             <Breadcrumb>
               <Breadcrumb.Item>
@@ -63,6 +65,11 @@ export default function Home() {
           </div>
           <div className="detailed-content">
             <ReactMarkdown source={markdown} escapeHtml={false} />
+          </div>
+         
+          </div>
+           <div className={styles.comm_left}>
+            <ShowComment/>
           </div>
         </Col>
         <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
