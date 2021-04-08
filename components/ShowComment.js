@@ -9,18 +9,14 @@ import {
 import moment from "moment";
 const { TextArea } = Input;
 export default function ShowComment() {
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
   const [value, setValue] = useState("");
   const [submitting, changeSubmitting] = useState(false);
   const [comments, setComments] = useState([]);
-  const [action, setAction] = useState(null);
+
   const hangleChange = (e) => {
-    console.log("点击改变时候传的值", e);
     setValue(e.target.value);
   };
-  const hangleSubmit = (e) => {
-    console.log("点击改变时候传的值", e);
+  const hangleSubmit = () => {
     if (!value) {
       return;
     }
@@ -33,23 +29,7 @@ export default function ShowComment() {
           avatar: "/images/author.jpg",
           content: <p>{value}</p>,
           datetime: moment().fromNow(),
-          actions: [
-            <Tooltip key="comment-basic-like" title="Like">
-              <span onClick={like(key)}>
-                {createElement(action === "liked" ? LikeFilled : LikeOutlined)}
-                <span className="comment-action">{likes}</span>
-              </span>
-            </Tooltip>,
-            <Tooltip key="comment-basic-dislike" title="Dislike">
-              <span onClick={dislike}>
-                {React.createElement(
-                  action === "disliked" ? DislikeFilled : DislikeOutlined
-                )}
-                <span className="comment-action">{dislikes}</span>
-              </span>
-            </Tooltip>,
-            <span key="comment-basic-reply-to">Reply to</span>,
-          ],
+          actions: { likes: 0, dislikes: 0, action: null },
         },
       ]);
       changeSubmitting(false);
@@ -57,27 +37,49 @@ export default function ShowComment() {
     }, 1000);
   };
   const like = (index) => {
-    console.log("点击喜欢",index);
-    setLikes(1);
-    setDislikes(0);
-    setAction("liked");
-    console.log('点击喜欢函数执行完成');
+    console.log("点击喜欢函数执行完成", index);
+    const arr = [...comments];
+    arr[index].actions = { likes: 1, dislikes: 0, action: "liked" };
+    setComments(arr);
+    console.log("点击喜欢函数执行完成", index);
   };
 
-  const dislike = () => {
-    setLikes(0);
-    setDislikes(1);
-    setAction("disliked");
+  const dislike = (index) => {
+    const arr = [...comments];
+    arr[index].actions = { likes: 0, dislikes: 1, action: "disliked" };
+    setComments(arr);
   };
   const CommentList = ({ comments }) => (
     <List
       dataSource={comments}
       header={`${comments.length} 条评论`}
       itemLayout="horizontal"
-      renderItem={(item, index)=> (
+      renderItem={(item, index) => (
         <li>
           <Comment
-            actions={item.actions}
+            actions={[
+              <Tooltip key="comment-basic-like" title="太赞了">
+                <span onClick={() => like(index)}>
+                  {createElement(
+                    item.actions.action === "liked" ? LikeFilled : LikeOutlined
+                  )}
+                  <span className="comment-action">{item.actions.likes}</span>
+                </span>
+              </Tooltip>,
+              <Tooltip key="comment-basic-dislike" title="不太行">
+                <span onClick={() => dislike(index)}>
+                  {React.createElement(
+                    item.actions.action === "disliked"
+                      ? DislikeFilled
+                      : DislikeOutlined
+                  )}
+                  <span className="comment-action">
+                    {item.actions.dislikes}
+                  </span>
+                </span>
+              </Tooltip>,
+          
+            ]}
             author={item.author}
             avatar={item.avatar}
             content={item.content}
@@ -87,35 +89,28 @@ export default function ShowComment() {
       )}
     />
   );
-  const Editor = ({ onChange, onSubmit, submitting, value }) => (
-    <>
-      <Form.Item>
-        😀评论： <TextArea rows={4} onChange={onChange} value={value} />
-      </Form.Item>
-      <Form.Item>
-        <Button
-          htmlType="submit"
-          loading={submitting}
-          onClick={onSubmit}
-          type="primary"
-        >
-          添加评论
-        </Button>
-      </Form.Item>
-    </>
-  );
 
   return (
     <>
       <Comment
         avatar={<Avatar src="/images/author.jpg" alt="柏特" />}
         content={
-          <Editor
-            onChange={hangleChange}
-            onSubmit={hangleSubmit}
-            submitting={submitting}
-            value={value}
-          />
+          <>
+            <Form.Item>
+              😀评论：{" "}
+              <TextArea rows={4} onChange={hangleChange} placeholder="输入评论" value={value} />
+            </Form.Item>
+            <Form.Item>
+              <Button
+                htmlType="submit"
+                loading={submitting}
+                onClick={hangleSubmit}
+                type="primary"
+              >
+                添加评论
+              </Button>
+            </Form.Item>
+          </>
         }
       />
       {comments.length > 0 && <CommentList comments={comments} />}
