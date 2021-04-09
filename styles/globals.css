@@ -103,7 +103,7 @@ code {
 .aside_list {
   position: relative;
   flex-direction: column;
-  margin-bottom: 16px;
+  margin-top: 16px;
   cursor: pointer;
   color: #969696;
 
@@ -117,9 +117,25 @@ code {
   box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
   background-color: #fff;
 }
+.aside_list:hover {
+  cursor: pointer;
+  z-index: 2;
+  -webkit-box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+  box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+  -webkit-transform: translate3d(0,-2px,0);
+  transform: translate3d(0,-2px,0);
+}
 .aside_click {
   background-color: #f5d266;
   color: #FFF;
+}
+.aside_count {
+  text-align: center;
+  color: #f7610a;
+  margin-bottom: 16px;
+  overflow: hidden;
+  height: 19px;
+
 }
 .comment-action {
   padding-left: 8px;
@@ -129,4 +145,24 @@ code {
 [class*='-col-rtl'] .comment-action {
   padding-right: 8px;
   padding-left: 0;
+}
+.comment_bottom {
+  display: flex;
+  justify-content: space-between;
+  color: #f5d266;
+}
+.comment_bottom span {
+  cursor: pointer;
+  
+}
+
+.emojis_content {
+  display: flex;
+  width: 180px;
+  flex-wrap: wrap;
+}
+.emojis_content li {
+  margin: 5px;
+  cursor: pointer;
+
 }

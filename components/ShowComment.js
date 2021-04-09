@@ -1,5 +1,14 @@
 import React, { createElement, useState } from "react";
-import { Comment, Avatar, Form, Button, List, Input, Tooltip } from "antd";
+import {
+  Comment,
+  Avatar,
+  Form,
+  Button,
+  List,
+  Input,
+  Tooltip,
+  Popover,
+} from "antd";
 import {
   DislikeOutlined,
   LikeOutlined,
@@ -12,7 +21,6 @@ export default function ShowComment() {
   const [value, setValue] = useState("");
   const [submitting, changeSubmitting] = useState(false);
   const [comments, setComments] = useState([]);
-
   const hangleChange = (e) => {
     setValue(e.target.value);
   };
@@ -78,7 +86,6 @@ export default function ShowComment() {
                   </span>
                 </span>
               </Tooltip>,
-          
             ]}
             author={item.author}
             avatar={item.avatar}
@@ -89,7 +96,46 @@ export default function ShowComment() {
       )}
     />
   );
-
+  const emojis = [
+    "😀",
+    "🤠",
+    "😄",
+    "😁",
+    "😅",
+    "😂",
+    "🤣",
+    "🙂",
+    "🙃",
+    "😉",
+    "😍",
+    "😘",
+    "😜",
+    "🤡",
+    "😤",
+    "🥵",
+    "😎",
+    "😰",
+    "☹️",
+    "😭",
+    "😱",
+    "👍",
+    "✊",
+    "💪",
+    "👋",
+    "👀",
+    "🩲",
+  ];
+  const content = (
+    <div className="emojis_content">
+      {emojis.map((item, index) => {
+        return <li key={index} onClick={() => addEmojis(index)}>{item}</li>;
+      })}
+    </div>
+  );
+  const addEmojis = (index) => {
+    const emojisValue = `${value}${emojis[index]}`;
+    setValue(emojisValue);
+  };
   return (
     <>
       <Comment
@@ -97,18 +143,27 @@ export default function ShowComment() {
         content={
           <>
             <Form.Item>
-              😀评论：{" "}
-              <TextArea rows={4} onChange={hangleChange} placeholder="输入评论" value={value} />
+              <TextArea
+                rows={4}
+                onChange={hangleChange}
+                placeholder="输入评论"
+                value={value}
+              />
             </Form.Item>
             <Form.Item>
-              <Button
-                htmlType="submit"
-                loading={submitting}
-                onClick={hangleSubmit}
-                type="primary"
-              >
-                添加评论
-              </Button>
+              <div className="comment_bottom">
+                <Popover placement="left" content={content} trigger="click">
+                  <span>😀表情</span>
+                </Popover>
+                <Button
+                  htmlType="submit"
+                  loading={submitting}
+                  onClick={hangleSubmit}
+                  type="primary"
+                >
+                  添加评论
+                </Button>
+              </div>
             </Form.Item>
           </>
         }
