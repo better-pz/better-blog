@@ -47,7 +47,7 @@ export default function Home() {
       </Head>
 
       <Row className={styles.comm_main} type="flex" justify="center">
-        <Col xs={24} sm={24} md={16} lg={18} xl={10}>
+        <Col xs={24} sm={24} md={20} lg={20} xl={10}>
           <div className={styles.comm_left}>
             <List
               header={<div>热门文章</div>}
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </Col>
 
-        <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Col className={styles.comm_right} xs={0} sm={0} md={4} lg={4} xl={4}>
         <Affix offsetTop={60}>
           <Author />
           <Classify />

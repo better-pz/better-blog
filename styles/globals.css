@@ -17,7 +17,13 @@ a {
 body{
   background:url('../public/images/bg2.png') repeat;  
 }
-
+.comments_nodata{
+  border-top:1px solid #cccbcb ;
+  padding-top: 10px;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+}
 .comm-left{
   background-color: #FFF;
   padding:.3rem;
@@ -128,7 +134,25 @@ code {
 .aside_click {
   background-color: #f5d266;
   color: #FFF;
+  animation: scaleDraw 1s ease-in-out;
 }
+/*  */
+@keyframes scaleDraw{
+  0% {
+         transform: scale(1);  /*开始为原始大小*/
+  }
+  25% {
+        transform: scale(2.1); /*放大1.1倍*/
+  }
+  50% {
+      transform: scale(1);
+  }
+  75% {
+      transform: scale(2.1);
+  }
+ 
+}
+
 .aside_count {
   text-align: center;
   color: #f7610a;
@@ -136,6 +160,39 @@ code {
   overflow: hidden;
   height: 19px;
 
+}
+.aside_count_father {
+  transition: transform .2s;
+  
+}
+.aside_count_span {
+  display: block;
+  height: 19px;
+}
+.aside_like{
+  animation: like 0.5s;
+  animation-fill-mode: forwards ;
+}
+.aside_concel_like{
+  animation: concel-like 0.5s;
+  animation-fill-mode: forwards ;
+}
+@keyframes like {
+  0% {
+    margin-top:0px;
+  }
+  100% {
+    margin-top:-20px;
+  }
+
+}
+@keyframes concel-like {
+  0% {
+    margin-top:-20px;
+  }
+  100% {
+    margin-top:0px;
+  }
 }
 .comment-action {
   padding-left: 8px;
@@ -152,8 +209,7 @@ code {
   color: #f5d266;
 }
 .comment_bottom span {
-  cursor: pointer;
-  
+  cursor: pointer;  
 }
 
 .emojis_content {
@@ -164,5 +220,8 @@ code {
 .emojis_content li {
   margin: 5px;
   cursor: pointer;
-
+}
+.comment_textarea  {
+  background: url('../public/images/comment_bg.jpg')  no-repeat right bottom;
+  background-size:50px;
 }

@@ -7,7 +7,7 @@ export default function Aside() {
     
     const like = () =>{
         changeClicked(!isClicked) 
-        isClicked ? changeCount(count-1):changeCount(count+1)
+        // isClicked ? changeCount(count-1):changeCount(count+1)
     }
     const onShare =() => {
         document.execCommand("Copy")
@@ -21,12 +21,12 @@ export default function Aside() {
                 </div>
             </Tooltip>
             <div className='aside_count'>
-                <div>
-                    <span>
+                <div className="aside_count_father">
+                    <span className={`aside_count_span ${isClicked ? 'aside_like':'aside_concel_like'}`}>
                         {count}赞 
                     </span>
-                    <span>
-                        {count}赞 
+                    <span className="aside_count_span">
+                        {count+1}赞 
                     </span>
                 </div>
                 
@@ -34,7 +34,7 @@ export default function Aside() {
             <div className='aside_list'>
                 赏
             </div>
-            <Tooltip key="comment-basic-like" title='分享'>
+            <Tooltip key="comment-basic-share" title='分享'>
                 <div className='aside_list' onClick={onShare}>
                 <ShareAltOutlined />
                 </div>

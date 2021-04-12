@@ -1,4 +1,4 @@
-import React, { createElement, useState } from "react";
+import React, { createElement, useState, useRef } from "react";
 import {
   Comment,
   Avatar,
@@ -21,6 +21,7 @@ export default function ShowComment() {
   const [value, setValue] = useState("");
   const [submitting, changeSubmitting] = useState(false);
   const [comments, setComments] = useState([]);
+  const inputVal = useRef();
   const hangleChange = (e) => {
     setValue(e.target.value);
   };
@@ -45,11 +46,9 @@ export default function ShowComment() {
     }, 1000);
   };
   const like = (index) => {
-    console.log("点击喜欢函数执行完成", index);
     const arr = [...comments];
     arr[index].actions = { likes: 1, dislikes: 0, action: "liked" };
     setComments(arr);
-    console.log("点击喜欢函数执行完成", index);
   };
 
   const dislike = (index) => {
@@ -128,13 +127,19 @@ export default function ShowComment() {
   const content = (
     <div className="emojis_content">
       {emojis.map((item, index) => {
-        return <li key={index} onClick={() => addEmojis(index)}>{item}</li>;
+        return (
+          <li key={index} onClick={() => addEmojis(index)}>
+            {item}
+          </li>
+        );
       })}
     </div>
   );
   const addEmojis = (index) => {
     const emojisValue = `${value}${emojis[index]}`;
     setValue(emojisValue);
+
+    inputVal.current.focus();
   };
   return (
     <>
@@ -143,12 +148,16 @@ export default function ShowComment() {
         content={
           <>
             <Form.Item>
-              <TextArea
-                rows={4}
-                onChange={hangleChange}
-                placeholder="输入评论"
-                value={value}
-              />
+              
+                <TextArea
+                className="comment_textarea"
+                  rows={4}
+                  ref={inputVal}
+                  onChange={hangleChange}
+                  placeholder="输入评论"
+                  value={value}
+                />
+      
             </Form.Item>
             <Form.Item>
               <div className="comment_bottom">
@@ -168,7 +177,7 @@ export default function ShowComment() {
           </>
         }
       />
-      {comments.length > 0 && <CommentList comments={comments} />}
+      {comments.length > 0 ? <CommentList comments={comments} /> :<div className={'comments_nodata'}>暂时还有评论哦😀,快来抢沙发吧😜</div>}
     </>
   );
 }

@@ -52,7 +52,7 @@ export default function Home() {
       <Aside />
       <Row className={styles.comm_main} type="flex" justify="center">
         
-        <Col xs={24} sm={24} md={16} lg={18} xl={10}>
+        <Col xs={24} sm={24} md={20} lg={20} xl={10}>
           <div  className={styles.comm_left}>
           <div className={styles.comm_crumb}>
             <Breadcrumb>
@@ -72,7 +72,7 @@ export default function Home() {
             <ShowComment/>
           </div>
         </Col>
-        <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Col className={styles.comm_right} xs={0} sm={0} md={4} lg={4} xl={4}>
           <Affix offsetTop={60}>
             <div className="detailed-nav comm-box">
               <div className="nav-title">文章目录</div>
