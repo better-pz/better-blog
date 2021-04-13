@@ -5,9 +5,9 @@
   padding: .3rem;
   border-radius: .3rem;
   border: 1px solid #eee;
-  opacity:0.8;
+  /* opacity:0.8; */
   margin-bottom: .3rem;
-
+  box-shadow: 0 10px 35px 2px #00000026, 0 5px 15px #00000012, 0 2px 5px -5px #0000001a;
 }
 .comm_right{
   /* background-color: #FFF; */
@@ -15,7 +15,7 @@
   /* padding:.3rem; */
   border-radius: .3rem;
   border-bottom:1px solid #eee;
-  opacity:0.8;
+  /* opacity:0.8; */
   
 }
 .comm_main{

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import ReactMarkdown from "react-markdown";
+import marked from 'marked'
+import hljs from "highlight.js";
+import 'highlight.js/styles/monokai-sublime.css';
 import MarkNav from "markdown-navbar";
 import "markdown-navbar/dist/navbar.css";
 import { Row, Col, Breadcrumb, Affix } from "antd";
@@ -8,6 +10,7 @@ import Aside from "../components/Aside";
 import ShowComment from "../components/ShowComment";
 
 export default function Home() {
+  
   let markdown =
     "# P01:课程介绍和环境搭建\n" +
     "[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n" +
@@ -43,6 +46,26 @@ export default function Home() {
     ">> bbbbbbbbb\n" +
     ">>> cccccccccc\n\n" +
     "``` var a=11; ```";
+
+    const renderer = new marked.Renderer();
+
+    marked.setOptions({
+
+      renderer: renderer,
+  
+      gfm: true,
+      pedantic: false,
+      sanitize: false,
+      tables: true,
+      breaks: false,
+      smartLists: true,
+      smartypants: false,
+  
+      highlight: function (code) {
+              return hljs.highlightAuto(code).value;
+      }
+    }); 
+      let html = marked(markdown) 
   return (
     <div>
       <Head>
@@ -64,7 +87,13 @@ export default function Home() {
             </Breadcrumb>
           </div>
           <div className="detailed-content">
-            <ReactMarkdown source={markdown} escapeHtml={false} />
+            {/* <ReactMarkdown source={markdown} escapeHtml={false} />
+             */}
+              <div className="detailed-content"  
+                  dangerouslySetInnerHTML = {{__html:html}}   >
+
+
+                </div>
           </div>
          
           </div>
