@@ -47,7 +47,7 @@ export default function Home() {
       </Head>
 
       <Row className={styles.comm_main} type="flex" justify="center">
-        <Col xs={24} sm={24} md={20} lg={20} xl={10}>
+        <Col xs={24} sm={24} md={20} lg={20} xl={11}>
           <div className={styles.comm_left}>
             <List
               header={<div>热门文章</div>}
