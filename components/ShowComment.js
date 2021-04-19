@@ -96,33 +96,8 @@ export default function ShowComment() {
     />
   );
   const emojis = [
-    "😀",
-    "🤠",
-    "😄",
-    "😁",
-    "😅",
-    "😂",
-    "🤣",
-    "🙂",
-    "🙃",
-    "😉",
-    "😍",
-    "😘",
-    "😜",
-    "🤡",
-    "😤",
-    "🥵",
-    "😎",
-    "😰",
-    "☹️",
-    "😭",
-    "😱",
-    "👍",
-    "✊",
-    "💪",
-    "👋",
-    "👀",
-    "🩲",
+    "😀","🤠","😄","😁","😅","😂","🤣","🙂","🙃","😉","😍","😘","😜",
+    "🤡", "😤", "🥵","😎","😰","☹️","😭","😱","👍","✊","💪","👋","👀","🩲",
   ];
   const content = (
     <div className="emojis_content">
@@ -148,16 +123,14 @@ export default function ShowComment() {
         content={
           <>
             <Form.Item>
-              
-                <TextArea
+              <TextArea
                 className="comment_textarea"
-                  rows={4}
-                  ref={inputVal}
-                  onChange={hangleChange}
-                  placeholder="输入评论"
-                  value={value}
-                />
-      
+                rows={4}
+                ref={inputVal}
+                onChange={hangleChange}
+                placeholder="输入评论"
+                value={value}
+              />
             </Form.Item>
             <Form.Item>
               <div className="comment_bottom">
@@ -177,7 +150,11 @@ export default function ShowComment() {
           </>
         }
       />
-      {comments.length > 0 ? <CommentList comments={comments} /> :<div className={'comments_nodata'}>暂时还有评论哦😀,快来抢沙发吧😜</div>}
+      {comments.length > 0 ? (
+        <CommentList comments={comments} />
+      ) : (
+        <div className={"comments_nodata"}>暂时还有评论哦😀,快来抢沙发吧😜</div>
+      )}
     </>
   );
 }

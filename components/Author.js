@@ -1,5 +1,5 @@
 import styles from "../styles/Author.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import { Avatar, Divider, Tooltip } from "antd";
 import { QqOutlined,WechatOutlined,GithubOutlined } from '@ant-design/icons';
 export default function Author() {
@@ -11,9 +11,9 @@ export default function Author() {
   const myFuction = () => {
     // setInterval(function() {
       const str = "永远的不停留,永远的生生不息".split("");
-      var sloginStr = "";
-      var i = 0;
-      var timer = setInterval(function() {
+      let sloginStr = "";
+      let i = 0;
+      let timer = setInterval(function() {
         if (i < str.length) {
           sloginStr += str[i];
           setSlogoin(sloginStr);

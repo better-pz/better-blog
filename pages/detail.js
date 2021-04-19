@@ -14,12 +14,8 @@ export default function Home(data) {
   
   const [ mylist , setMylist ] = useState( data.data);
     const renderer = new marked.Renderer();
-
     marked.setOptions({
-
       renderer: renderer,
-  
-    
       gfm: true,
       pedantic: false,
       sanitize: false,
