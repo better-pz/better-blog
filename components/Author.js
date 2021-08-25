@@ -13,7 +13,7 @@ export default function Author() {
       const str = "永远的不停留,永远的生生不息".split("");
       let sloginStr = "";
       let i = 0;
-      let timer = setInterval(function() {
+      let timer = setInterval(()=> {
         if (i < str.length) {
           sloginStr += str[i];
           setSlogoin(sloginStr);
